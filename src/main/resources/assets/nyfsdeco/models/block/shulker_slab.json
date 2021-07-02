@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "top": "block/shulker_box",
+    "bottom": "block/shulker_box",
+    "side": "block/shulker_box"
+    }
+}

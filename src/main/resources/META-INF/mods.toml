@@ -1,0 +1,12 @@
+modLoader="javafml" #mandatory
+loaderVersion="[36,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+license="All rights reserved"
+[[mods]] #mandatory
+modId="nyfsdeco" #mandatory
+version="${file.jarVersion}" #mandatory
+displayName="Nyf's Deco" #mandatory
+authors="TheNyfaria" #optional
+description='''
+Nyf's Deco
+Adds a bunch of Blocks that were either Interactible or didn't have patterns in a certain direction as decoration blocks for builders.
+'''

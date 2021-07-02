@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:smoker"
+    },
+    "result": "nyfsdeco:s_bottom_slab",
+    "count": 2
+}

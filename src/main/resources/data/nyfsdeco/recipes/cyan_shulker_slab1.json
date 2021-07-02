@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "nyfsdeco:cyan_shulker_bottom"
+    },
+    "result": "nyfsdeco:cyan_shulker_slab",
+    "count": 2
+}

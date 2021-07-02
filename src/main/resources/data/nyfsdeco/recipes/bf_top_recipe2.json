@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "nyfsdeco:bf_top"
+    },
+    "result": "nyfsdeco:bf_top_slab",
+    "count": 2
+}

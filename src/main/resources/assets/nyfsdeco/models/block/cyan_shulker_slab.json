@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "top": "block/cyan_shulker_box",
+    "bottom": "block/cyan_shulker_box",
+    "side": "block/cyan_shulker_box"
+    }
+}

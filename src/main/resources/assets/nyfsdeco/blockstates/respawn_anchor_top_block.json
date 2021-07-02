@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "nyfsdeco:block/respawn_anchor_top_block"
+      }
+    ]
+  }
+}

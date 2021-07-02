@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "top": "block/crafting_table_top",
+    "bottom": "block/crafting_table_top",
+    "side": "block/crafting_table_top"
+    }
+}

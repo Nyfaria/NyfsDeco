@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:blast_furnace"
+    },
+    "result": "nyfsdeco:bf_top",
+    "count": 1
+}

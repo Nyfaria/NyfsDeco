@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "nyfsdeco:block/lime_shulker_slab"
+    },
+    "type=double": {
+      "model": "nyfsdeco:block/lime_shulker_block"
+    },
+    "type=top": {
+      "model": "nyfsdeco:block/lime_shulker_slab_top"
+    }
+  }
+}

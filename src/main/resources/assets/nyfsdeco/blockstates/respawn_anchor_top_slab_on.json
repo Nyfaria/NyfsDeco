@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "nyfsdeco:block/respawn_anchor_top_slab_on"
+    },
+    "type=double": {
+      "model": "nyfsdeco:block/respawn_anchor_top_block_on"
+    },
+    "type=top": {
+      "model": "nyfsdeco:block/respawn_anchor_top_slab_top_on"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "top": "block/lodestone_top",
+    "bottom": "block/lodestone_top",
+    "side": "block/lodestone_top"
+    }
+}

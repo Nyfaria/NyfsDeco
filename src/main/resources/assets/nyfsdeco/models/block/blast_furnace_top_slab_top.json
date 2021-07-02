@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab_top",
+  "textures": {
+    "top": "block/blast_furnace_top",
+    "bottom": "block/blast_furnace_top",
+    "side": "block/blast_furnace_top"
+    }
+}

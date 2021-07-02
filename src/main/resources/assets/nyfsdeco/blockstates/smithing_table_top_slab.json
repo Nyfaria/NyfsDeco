@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "nyfsdeco:block/smithing_table_top_slab"
+    },
+    "type=double": {
+      "model": "nyfsdeco:block/smithing_table_top_block"
+    },
+    "type=top": {
+      "model": "nyfsdeco:block/smithing_table_top_slab_top"
+    }
+  }
+}

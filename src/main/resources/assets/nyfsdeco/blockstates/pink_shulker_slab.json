@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "nyfsdeco:block/pink_shulker_slab"
+    },
+    "type=double": {
+      "model": "nyfsdeco:block/pink_shulker_block"
+    },
+    "type=top": {
+      "model": "nyfsdeco:block/pink_shulker_slab_top"
+    }
+  }
+}
