@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab",
-  "textures": {
-    "top": "block/respawn_anchor_top",
-    "bottom": "block/respawn_anchor_top",
-    "side": "block/respawn_anchor_top"
-    }
-}

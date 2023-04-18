@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab_top",
-  "textures": {
-    "top": "block/orange_shulker_box",
-    "bottom": "block/orange_shulker_box",
-    "side": "block/orange_shulker_box"
-    }
-}
