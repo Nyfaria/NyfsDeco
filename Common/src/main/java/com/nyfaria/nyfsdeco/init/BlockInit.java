@@ -2,28 +2,23 @@ package com.nyfaria.nyfsdeco.init;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import com.nyfaria.grinnersents.registration.RegistrationProvider;
-import com.nyfaria.grinnersents.registration.RegistryObject;
 import com.nyfaria.nyfsdeco.Constants;
 import com.nyfaria.nyfsdeco.block.BlockCollection;
-import net.minecraft.core.registries.Registries;
+import com.nyfaria.nyfsdeco.registration.RegistrationProvider;
+import com.nyfaria.nyfsdeco.registration.RegistryObject;
+import net.minecraft.core.Registry;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 
 import java.util.function.Supplier;
 
 public class BlockInit {
     public static Multimap<Block, RegistryObject<Block>> blocks = HashMultimap.create();
-    public static final RegistrationProvider<Block> BLOCKS = RegistrationProvider.get(Registries.BLOCK, Constants.MODID);
-    public static final RegistrationProvider<BlockEntityType<?>> BLOCK_ENTITIES = RegistrationProvider.get(Registries.BLOCK_ENTITY_TYPE, Constants.MODID);
+    public static final RegistrationProvider<Block> BLOCKS = RegistrationProvider.get(Registry.BLOCK, Constants.MODID);
+    public static final RegistrationProvider<BlockEntityType<?>> BLOCK_ENTITIES = RegistrationProvider.get(Registry.BLOCK_ENTITY_TYPE, Constants.MODID);
 
     public static final BlockCollection CRAFTING_TABLE_TOP = new BlockCollection(Blocks.CRAFTING_TABLE, "crafting_table_top");
     public static final BlockCollection FURNACE_TOP = new BlockCollection(Blocks.FURNACE, "furnace_top");
@@ -189,9 +184,9 @@ public class BlockInit {
 
 
 
-    public static RegistryObject<Block> registerBlockWithItem(Block parent, String name, Supplier<Block> block) {
+    public static RegistryObject<Block> registerBlockWithItem(Block parent, String name, Supplier<Block> block, Item.Properties properties){
         RegistryObject<Block> blockRegistryObject = BLOCKS.register(name, block);
-        ItemInit.ITEMS.register(name, () -> new BlockItem(blockRegistryObject.get(), ItemInit.getItemProperties()));
+        ItemInit.ITEMS.register(name, () -> new BlockItem(blockRegistryObject.get(), properties));
         blocks.put(parent, blockRegistryObject);
         return blockRegistryObject;
     }

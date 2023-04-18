@@ -1,22 +1,75 @@
 package com.nyfaria.nyfsdeco;
 
-import com.nyfaria.nyfsdeco.datagen.ModBlockStateProvider;
-import com.nyfaria.nyfsdeco.datagen.ModItemModelProvider;
-import com.nyfaria.nyfsdeco.datagen.ModLangProvider;
-import com.nyfaria.nyfsdeco.datagen.ModLootTableProvider;
-import com.nyfaria.nyfsdeco.datagen.ModRecipeProvider;
-import com.nyfaria.nyfsdeco.datagen.ModSoundProvider;
-import com.nyfaria.nyfsdeco.datagen.ModTagProvider;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import com.nyfaria.nyfsdeco.init.BlockInit;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod(Constants.MODID)
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class NyfsDeco {
+    public static final CreativeModeTab BLOCKS_TAB = new CreativeModeTab("nyfsdeco.blocks") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(BlockInit.RESPAWN_ANCHOR_TOP.getBlock().get());
+        }
+    };
+    public static final CreativeModeTab SLABS_TAB = new CreativeModeTab("nyfsdeco.slabs") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(BlockInit.RESPAWN_ANCHOR_TOP.getSlab().get());
+        }
+    };
+    public static final CreativeModeTab STAIRS_TAB = new CreativeModeTab("nyfsdeco.stairs") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(BlockInit.RESPAWN_ANCHOR_TOP.getStairs().get());
+        }
+    };
+    public static final CreativeModeTab WALLS_TAB = new CreativeModeTab("nyfsdeco.walls") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(BlockInit.RESPAWN_ANCHOR_TOP.getWall().get());
+        }
+    };
+    public static final CreativeModeTab FENCES_TAB = new CreativeModeTab("nyfsdeco.fences") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(BlockInit.RESPAWN_ANCHOR_TOP.getFence().get());
+        }
+    };
+    public static final CreativeModeTab FENCE_GATES_TAB = new CreativeModeTab("nyfsdeco.fence_gates") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(BlockInit.RESPAWN_ANCHOR_TOP.getFenceGate().get());
+        }
+    };
+    public static final CreativeModeTab BUTTONS_TAB = new CreativeModeTab("nyfsdeco.buttons") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(BlockInit.RESPAWN_ANCHOR_TOP.getButton().get());
+        }
+    };
+    public static final CreativeModeTab PRESSURE_PLATES_TAB = new CreativeModeTab("nyfsdeco.pressure_plates") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(BlockInit.RESPAWN_ANCHOR_TOP.getPressurePlate().get());
+        }
+    };
+    public static final CreativeModeTab TRAPDOORS_TAB = new CreativeModeTab("nyfsdeco.trapdoors") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(BlockInit.RESPAWN_ANCHOR_TOP.getTrapdoor().get());
+        }
+    };
+    public static final CreativeModeTab CARPETS_TAB = new CreativeModeTab("nyfsdeco.carpet") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(BlockInit.RESPAWN_ANCHOR_TOP.getCarpet().get());
+        }
+    };
+
+
     
     public NyfsDeco() {
     
@@ -28,22 +81,5 @@ public class NyfsDeco {
         Constants.LOG.info("Hello Forge world!");
         CommonClass.init();
         
-    }
-
-    @SubscribeEvent
-    public static void onGatherData(GatherDataEvent event) {
-        PackOutput packOutput = event.getGenerator().getPackOutput();
-        DataGenerator generator = event.getGenerator();
-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        boolean includeServer = event.includeServer();
-        boolean includeClient = event.includeClient();
-        generator.addProvider(includeServer, new ModRecipeProvider(packOutput));
-        generator.addProvider(includeServer, new ModLootTableProvider(packOutput));
-        generator.addProvider(includeServer, new ModSoundProvider(packOutput, existingFileHelper));
-        generator.addProvider(includeServer, new ModTagProvider.Blocks(packOutput,event.getLookupProvider(), existingFileHelper));
-        generator.addProvider(includeServer, new ModTagProvider.Items(packOutput,event.getLookupProvider(), existingFileHelper));
-        generator.addProvider(includeClient, new ModItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(includeClient, new ModBlockStateProvider(packOutput, existingFileHelper));
-        generator.addProvider(includeClient, new ModLangProvider(packOutput));
     }
 }

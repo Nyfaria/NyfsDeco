@@ -1,6 +1,8 @@
 package com.nyfaria.nyfsdeco.block;
 
-import com.nyfaria.grinnersents.registration.RegistryObject;
+import com.nyfaria.nyfsdeco.init.ItemInit;
+import com.nyfaria.nyfsdeco.platform.Services;
+import com.nyfaria.nyfsdeco.registration.RegistryObject;
 import com.nyfaria.nyfsdeco.init.BlockInit;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -15,6 +17,7 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.WoodButtonBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.ArrayList;
@@ -41,16 +44,16 @@ public class BlockCollection {
     public BlockCollection(Block parentBlock, String name, boolean block, boolean stairs, boolean slab, boolean carpet) {
         this.parentBlock = parentBlock;
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.DIRT).noOcclusion();
-        this.block = block ? BlockInit.registerBlockWithItem(parentBlock, name, () -> new Block(properties)) : null;
-        this.stairs = stairs ? BlockInit.registerBlockWithItem(parentBlock, name + "_stairs", () -> new StairBlock(Blocks.OAK_PLANKS.defaultBlockState(), properties)) : null;
-        this.slab = slab ? BlockInit.registerBlockWithItem(parentBlock, name + "_slab", () -> new SlabBlock(properties)) : null;
-        this.carpet = carpet ? BlockInit.registerBlockWithItem(parentBlock, name + "_carpet", () -> new CarpetBlock(properties)) : null;
-        this.pressurePlate = BlockInit.registerBlockWithItem(parentBlock, name + "_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,properties, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_OFF));
-        this.button = BlockInit.registerBlockWithItem(parentBlock, name + "_button", Blocks::woodenButton);
-        this.trapdoor = BlockInit.registerBlockWithItem(parentBlock, name + "_trapdoor", ()-> new TrapDoorBlock(properties, SoundEvents.WOODEN_TRAPDOOR_CLOSE, SoundEvents.WOODEN_TRAPDOOR_OPEN));
-        this.fence = BlockInit.registerBlockWithItem(parentBlock, name + "_fence", ()-> new FenceBlock(properties));
-        this.fenceGate = BlockInit.registerBlockWithItem(parentBlock, name + "_fence_gate", ()-> new FenceGateBlock(properties, SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN));
-        this.wall = BlockInit.registerBlockWithItem(parentBlock, name + "_wall", ()-> new WallBlock(properties));
+        this.block = block ? BlockInit.registerBlockWithItem(parentBlock, name, () -> new Block(properties), ItemInit.getItemProperties().tab(Services.PLATFORM.getBlocksTab())) : null;
+        this.stairs = stairs ? BlockInit.registerBlockWithItem(parentBlock, name + "_stairs", () -> new StairBlock(Blocks.OAK_PLANKS.defaultBlockState(), properties), ItemInit.getItemProperties().tab(Services.PLATFORM.getStairsTab())) : null;
+        this.slab = slab ? BlockInit.registerBlockWithItem(parentBlock, name + "_slab", () -> new SlabBlock(properties), ItemInit.getItemProperties().tab(Services.PLATFORM.getSlabsTab())) : null;
+        this.carpet = carpet ? BlockInit.registerBlockWithItem(parentBlock, name + "_carpet", () -> new CarpetBlock(properties), ItemInit.getItemProperties().tab(Services.PLATFORM.getCarpetsTab())) : null;
+        this.pressurePlate = BlockInit.registerBlockWithItem(parentBlock, name + "_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,properties), ItemInit.getItemProperties().tab(Services.PLATFORM.getPressurePlatesTab()));
+        this.button = BlockInit.registerBlockWithItem(parentBlock, name + "_button",()-> new WoodButtonBlock(properties), ItemInit.getItemProperties().tab(Services.PLATFORM.getButtonsTab()));
+        this.trapdoor = BlockInit.registerBlockWithItem(parentBlock, name + "_trapdoor", ()-> new TrapDoorBlock(properties), ItemInit.getItemProperties().tab(Services.PLATFORM.getTrapdoorsTab()));
+        this.fence = BlockInit.registerBlockWithItem(parentBlock, name + "_fence", ()-> new FenceBlock(properties), ItemInit.getItemProperties().tab(Services.PLATFORM.getFencesTab()));
+        this.fenceGate = BlockInit.registerBlockWithItem(parentBlock, name + "_fence_gate", ()-> new FenceGateBlock(properties), ItemInit.getItemProperties().tab(Services.PLATFORM.getFenceGatesTab()));
+        this.wall = BlockInit.registerBlockWithItem(parentBlock, name + "_wall", ()-> new WallBlock(properties), ItemInit.getItemProperties().tab(Services.PLATFORM.getWallsTab()));
         COLLECTIONS.add(this);
     }
 

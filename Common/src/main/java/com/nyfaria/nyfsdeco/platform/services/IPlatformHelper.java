@@ -1,5 +1,7 @@
 package com.nyfaria.nyfsdeco.platform.services;
 
+import net.minecraft.world.item.CreativeModeTab;
+
 public interface IPlatformHelper {
 
     /**
@@ -33,4 +35,14 @@ public interface IPlatformHelper {
 
         return isDevelopmentEnvironment() ? "development" : "production";
     }
+    CreativeModeTab getBlocksTab();
+    CreativeModeTab getSlabsTab();
+    CreativeModeTab getStairsTab();
+    CreativeModeTab getWallsTab();
+    CreativeModeTab getFencesTab();
+    CreativeModeTab getFenceGatesTab();
+    CreativeModeTab getTrapdoorsTab();
+    CreativeModeTab getButtonsTab();
+    CreativeModeTab getPressurePlatesTab();
+    CreativeModeTab getCarpetsTab();
 }
